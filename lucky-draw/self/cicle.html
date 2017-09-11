@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="cicle.css">
+</head>
+<body>
+	<div>
+		<button class="btn">抽奖</button>
+		<button class="btn2">停止</button>
+		<div class="wrapper">
+			<div class="father">
+				<div class="son"></div>
+				<div class="son"></div>
+				<div class="son"></div>
+				<div class="son"></div>
+			</div>
+			<div class="arrow"></div>
+		</div>
+	</div>
+	<script>
+		var btn = document.querySelector('.btn');
+		var btn2 = document.querySelector('.btn2');
+		var father = document.querySelector('.father');
+		var sons = father.querySelectorAll('.son');
+		var wrapper = document.querySelector('.wrapper');
+		var timer;
+		var isRotate = false;
+		var fn = function (randomAngle,randomNum) {
+				father.style.transition = 'all 3s'
+				father.style.transform = 'rotate('+ randomAngle +'deg)'
+				switch (randomNum) {
+					case 1 : 
+						setTimeout(function(){
+							alert('一等奖')
+							father.style.transition = 'none'
+							father.style.transform = 'rotate(0deg)'
+						},3000)
+						break;
+					case 2 : 
+						setTimeout(function(){
+							alert('二等奖')
+							father.style.transition = 'none'
+
+							father.style.transform = 'rotate(0deg)'
+						},3000)
+						break;
+					case 3 : 
+						setTimeout(function(){
+							alert('三等奖')
+							father.style.transition = 'none'
+							father.style.transform = 'rotate(0deg)'
+
+						},3000)
+						break;
+					case 4 : 
+						setTimeout(function(){
+							alert('继续加油')
+							father.style.transition = 'none'
+							father.style.transform = 'rotate(0deg)'
+						},3000)
+						break;
+				}
+				isRotate = false;
+
+			}
+		btn.onclick = function () {
+			if(isRotate) {return}
+			isRotate = true;
+			var randomAngle,
+				randomNum = Math.floor(Math.random()*sons.length);
+			switch (randomNum) {
+				case 1: 
+					randomAngle = Math.random()*90 + 720
+					fn(randomAngle,randomNum)
+					break;
+				case 2: 
+					randomAngle = Math.random()*90 + 90 + 720
+					fn(randomAngle,randomNum)
+
+					break;
+				case 3: 
+					randomAngle = Math.random()*90 + 180 + 720
+					fn(randomAngle,randomNum)
+
+					break;
+				case 4: 
+					randomAngle = Math.random()*90 + 270 + 720
+					fn(randomAngle,randomNum)
+
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

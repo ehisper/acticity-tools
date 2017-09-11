@@ -1,0 +1,46 @@
+.wrapper{
+	width: 200px;
+	height: 200px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	position:relative;
+	.father{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200px;
+		height: 200px;
+		transition: 3s;
+		.son{
+			width: 100px;
+			height: 100px;
+			float: left;
+			&:first-child{
+				background-color: pink;
+				border-radius: 100% 0 0 0;
+			}
+			&:nth-child(2){
+				background-color: yellowgreen;
+				border-radius: 0 100% 0 0;
+			}
+			&:nth-child(3){
+				background-color: skyblue;
+				border-radius: 0 0 0 100%;
+			}
+			&:last-child{
+				background-color: cyan;
+				border-radius: 0 0 100% 0;
+			}
+		}
+	}
+	.arrow{
+		position:absolute;
+		top: 40px;
+		left:100px;
+		content:'';
+		height: 60px;
+		width: 5px; 
+		background-color: red;
+	
+	}
+}
